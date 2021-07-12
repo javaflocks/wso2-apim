@@ -1,0 +1,350 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: TestRestAPI
+security:
+  - default: []
+paths:
+  /throwAxisFault:
+    post:
+      operationId: throwAxisFault
+      parameters:
+        - in: body
+          name: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/throwAxisFaultInput'
+      responses:
+        default:
+          description: ''
+          schema:
+            $ref: '#/definitions/throwAxisFaultOutput'
+      security:
+        - default: []
+      x-wso2-soap:
+        soap-action: 'urn:throwAxisFault'
+        soap-operation: throwAxisFault
+        namespace: 'http://echo.services.core.carbon.wso2.org'
+        x-soap-version: '1.2'
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+        optional: false
+  /echoOMElement:
+    post:
+      operationId: echoOMElement
+      parameters:
+        - in: body
+          name: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/echoOMElementInput'
+      responses:
+        default:
+          description: ''
+          schema:
+            $ref: '#/definitions/echoOMElementOutput'
+      security:
+        - default: []
+      x-wso2-soap:
+        soap-action: 'urn:echoOMElement'
+        soap-operation: echoOMElement
+        namespace: 'http://echo.services.core.carbon.wso2.org'
+        x-soap-version: '1.2'
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+        optional: false
+  /echoStringArrays:
+    post:
+      operationId: echoStringArrays
+      parameters:
+        - in: body
+          name: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/echoStringArraysInput'
+      responses:
+        default:
+          description: ''
+          schema:
+            $ref: '#/definitions/echoStringArraysOutput'
+      security:
+        - default: []
+      x-wso2-soap:
+        soap-action: 'urn:echoStringArrays'
+        soap-operation: echoStringArrays
+        namespace: 'http://echo.services.core.carbon.wso2.org'
+        x-soap-version: '1.2'
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+        optional: false
+  /echoString:
+    post:
+      operationId: echoString
+      parameters:
+        - in: body
+          name: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/echoStringInput'
+      responses:
+        default:
+          description: ''
+          schema:
+            $ref: '#/definitions/echoStringOutput'
+      security:
+        - default: []
+      x-wso2-soap:
+        soap-action: 'urn:echoString'
+        soap-operation: echoString
+        namespace: 'http://echo.services.core.carbon.wso2.org'
+        x-soap-version: '1.2'
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+        optional: false
+  /echoInt:
+    post:
+      operationId: echoInt
+      parameters:
+        - in: body
+          name: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/echoIntInput'
+      responses:
+        default:
+          description: ''
+          schema:
+            $ref: '#/definitions/echoIntOutput'
+      security:
+        - default: []
+      x-wso2-soap:
+        soap-action: 'urn:echoInt'
+        soap-operation: echoInt
+        namespace: 'http://echo.services.core.carbon.wso2.org'
+        x-soap-version: '1.2'
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+        optional: false
+securityDefinitions:
+  default:
+    type: oauth2
+    authorizationUrl: 'https://test.com'
+    flow: implicit
+definitions:
+  throwAxisFaultInput:
+    type: object
+  throwAxisFaultOutput:
+    type: object
+    properties:
+      throwAxisFaultResponse:
+        $ref: '#/definitions/throwAxisFaultResponse'
+  echoOMElementInput:
+    type: object
+    properties:
+      echoOMElement:
+        $ref: '#/definitions/echoOMElement'
+  echoOMElementOutput:
+    type: object
+    properties:
+      echoOMElementResponse:
+        $ref: '#/definitions/echoOMElementResponse'
+  echoStringArraysInput:
+    type: object
+    properties:
+      echoStringArrays:
+        $ref: '#/definitions/echoStringArrays'
+  echoStringArraysOutput:
+    type: object
+    properties:
+      echoStringArraysResponse:
+        $ref: '#/definitions/echoStringArraysResponse'
+  echoStringInput:
+    type: object
+    properties:
+      echoString:
+        $ref: '#/definitions/echoString'
+  echoStringOutput:
+    type: object
+    properties:
+      echoStringResponse:
+        $ref: '#/definitions/echoStringResponse'
+  echoIntInput:
+    type: object
+    properties:
+      echoInt:
+        $ref: '#/definitions/echoInt'
+  echoIntOutput:
+    type: object
+    properties:
+      echoIntResponse:
+        $ref: '#/definitions/echoIntResponse'
+  echoOMElement:
+    type: object
+    properties:
+      omEle:
+        $ref: '#/definitions/anyType'
+    xml:
+      namespace: 'http://www.w3.org/2001/XMLSchema'
+      prefix: xs
+    x-namespace-qualified: false
+  echoOMElementResponse:
+    type: object
+    properties:
+      return:
+        $ref: '#/definitions/anyType'
+    xml:
+      namespace: 'http://www.w3.org/2001/XMLSchema'
+      prefix: xs
+    x-namespace-qualified: false
+  throwAxisFaultResponse:
+    type: object
+    properties:
+      return:
+        type: string
+    xml:
+      namespace: 'http://www.w3.org/2001/XMLSchema'
+      prefix: xs
+    x-namespace-qualified: false
+  SimpleBean:
+    type: object
+    properties:
+      a_r:
+        type: array
+        items:
+          type: string
+      b_r:
+        type: array
+        items:
+          type: string
+      c:
+        type: integer
+        format: int32
+    xml:
+      namespace: 'http://www.w3.org/2001/XMLSchema'
+      prefix: xs
+    x-namespace-qualified: false
+  echoInt:
+    type: object
+    properties:
+      in:
+        type: integer
+        format: int32
+    xml:
+      namespace: 'http://www.w3.org/2001/XMLSchema'
+      prefix: xs
+    x-namespace-qualified: false
+  throwAxisFault:
+    type: object
+    xml:
+      namespace: 'http://www.w3.org/2001/XMLSchema'
+      prefix: xs
+    x-namespace-qualified: false
+  echoStringArrays:
+    type: object
+    properties:
+      a:
+        type: array
+        items:
+          type: string
+      b:
+        type: array
+        items:
+          type: string
+      c:
+        type: integer
+        format: int32
+    xml:
+      namespace: 'http://www.w3.org/2001/XMLSchema'
+      prefix: xs
+    x-namespace-qualified: false
+  echoStringArraysResponse:
+    type: object
+    properties:
+      return:
+        $ref: '#/definitions/SimpleBean'
+    xml:
+      namespace: 'http://www.w3.org/2001/XMLSchema'
+      prefix: xs
+    x-namespace-qualified: false
+  echoStringResponse:
+    type: object
+    properties:
+      return:
+        type: string
+    xml:
+      namespace: 'http://www.w3.org/2001/XMLSchema'
+      prefix: xs
+    x-namespace-qualified: false
+  echoIntResponse:
+    type: object
+    properties:
+      return:
+        type: integer
+        format: int32
+    xml:
+      namespace: 'http://www.w3.org/2001/XMLSchema'
+      prefix: xs
+    x-namespace-qualified: false
+  echoString:
+    type: object
+    properties:
+      in:
+        type: string
+    xml:
+      namespace: 'http://www.w3.org/2001/XMLSchema'
+      prefix: xs
+    x-namespace-qualified: false
+x-wso2-auth-header: Authorization
+x-wso2-cors:
+  corsConfigurationEnabled: false
+  accessControlAllowOrigins:
+    - '*'
+  accessControlAllowCredentials: false
+  accessControlAllowHeaders:
+    - authorization
+    - Access-Control-Allow-Origin
+    - Content-Type
+    - SOAPAction
+    - apikey
+    - testKey
+  accessControlAllowMethods:
+    - GET
+    - PUT
+    - POST
+    - DELETE
+    - PATCH
+    - OPTIONS
+x-wso2-production-endpoints:
+  urls:
+    - 'http://DESKTOP-S5FBA4E:8281/services/echo.echoHttpSoap11Endpoint'
+  type: address
+x-wso2-sandbox-endpoints:
+  urls:
+    - 'http://DESKTOP-S5FBA4E:8281/services/echo.echoHttpSoap11Endpoint'
+  type: address
+x-wso2-basePath: /testSoapAPI/1.0.0
+x-wso2-transports:
+  - http
+  - https
+x-wso2-application-security:
+  security-types:
+    - oauth2
+  optional: false
+x-wso2-response-cache:
+  enabled: false
+  cacheTimeoutInSeconds: 300
